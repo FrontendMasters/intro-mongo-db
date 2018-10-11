@@ -25,7 +25,6 @@ const orgSchema = new mongoose.Schema({
 
 
 orgSchema.post('remove', async (doc, next) => {
-  console.log('hello')
   await Project.remove({org: doc._id}).exec()
   next()
 })
