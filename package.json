@@ -1,0 +1,27 @@
+{
+  "name": "intro-to-mongodb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Scott Moss <willscottmoss@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "cuid": "^2.1.4",
+    "mongoose": "^5.3.2"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "testEnvironment": "node",
+    "setupTestFrameworkScriptFile": "<rootDir>/testconfig.js",
+    "restoreMocks": true,
+    "testPathIgnorePatterns": [
+      "dist/"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
