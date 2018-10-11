@@ -100,12 +100,6 @@ describe('queries', () => {
   describe('addRelatedPosts', () => {
     test('should not overrided related posts that are there', async () => {
       const author = mongoose.Types.ObjectId()
-
-      // const posts = await Post.create([
-      //   {title: 'learn things', content: createConent(100), contentLength: 100, author},
-      //   {title: 'lean more things', content: createConent(100), contentLength: 100, author},
-      //   {title: 'lean more things++', content: createConent(100), contentLength: 100, author}
-      // ])
       const post = await Post.create({
         author,
         title: 'Post',
