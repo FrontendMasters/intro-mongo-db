@@ -1,7 +1,7 @@
 const User = require('../user')
 const crud = require('../crud')
 
-describe('user crud', () => {
+describe('User crud', () => {
   describe('getUserById', () => {
     test('get user by object id', async () => {
       const user = await User.create({

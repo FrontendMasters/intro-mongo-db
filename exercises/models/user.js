@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   birthDate: Date,
+  pets: [{type: String}],
   address: {
     other: Boolean,
     street: String,

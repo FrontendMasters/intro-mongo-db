@@ -1,6 +1,6 @@
 const User = require('../user')
 
-describe('user', () => {
+describe('User model', () => {
   test('first name must be required', async () => {
     expect.assertions(1)
 
@@ -83,7 +83,8 @@ describe('user', () => {
         zip: 91917,
         city: 'SF',
         State: 'CA'
-      }
+      },
+      pets: ['tido', 'miguel']
     })).toObject()
 
     expect(user).toEqual({
@@ -98,7 +99,8 @@ describe('user', () => {
         zip: 91917,
         city: 'SF',
         State: 'CA'
-      }
+      },
+      pets: ['tido', 'miguel']
     })
   })
 })
