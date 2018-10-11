@@ -15,7 +15,7 @@ const fullPostById = (id) => {
     .exec()
 }
 
-const selectivePostsByLatest = (fieldsToSelect) => {
+const allPostsSlim = (fieldsToSelect) => {
   return Post.find({})
     .select(fieldsToSelect)
     .sort('-createdAt')
@@ -24,21 +24,22 @@ const selectivePostsByLatest = (fieldsToSelect) => {
 
 const postByContentLength = (maxContentLength, minContentLength) => {
   return Post.find({
-    content: {$lt: maxContentLength, $gt: minContentLength}
+    contentLength: {$lt: maxContentLength, $gt: minContentLength}
   })
     .exec()
 }
 
-const addRelatedPosts = (postId, relatedPosts) => {
-  return Post.findById(postId, {$pushAll: {relatedPosts}}, {new: true})
+const addSimilarPosts = (postId, similarPosts) => {
+  return Post.findByIdAndUpdate(postId, {
+    $push: {similarPosts: {$each: similarPosts}}
+  },{new: true})
 }
 
 module.exports = {
   postByTitle,
   postsForAuthor,
-  postByContentLength,
   fullPostById,
-  selectivePostsByLatest,
+  allPostsSlim,
   postByContentLength,
-  addRelatedPosts
+  addSimilarPosts
 }

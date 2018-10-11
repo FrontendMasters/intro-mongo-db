@@ -4,11 +4,12 @@ const Author = require('../author')
 describe('Post model', () => {
   test('author is required and id type', async () => {
     expect.assertions(2)
-    
+    const content = 'There are a bunch books out there with movies. But which ones are legit?'
     try {
       await Post.create({
+        content,
         title: 'Top ten movie books',
-        content: 'There are a bunch books out there with movies. But which ones are legit?',
+        contentLength: content.length
       })
     } catch (e) {
       expect(e).toBeTruthy()
@@ -16,8 +17,9 @@ describe('Post model', () => {
 
     try {
       await Post.create({
+        content,
+        contentLength: content.length,
         title: 'Top ten movie books',
-        content: 'There are a bunch books out there with movies. But which ones are legit?',
         author: 'hello'
       })
     } catch (e) {
@@ -26,14 +28,16 @@ describe('Post model', () => {
   })
   test('author must ref author collection', async () => {
     const name = 'JK Moose'
+    const content = 'There are a bunch books out there with movies. But which ones are legit?'
     const author = await Author.create({
       name,
       bio: 'I have so many awards'
     })
 
     const post = await Post.create({
+      content,
+      contentLength: content.length,
       title: 'Top ten movie books',
-      content: 'There are a bunch books out there with movies. But which ones are legit?',
       author: author.id
     })
 

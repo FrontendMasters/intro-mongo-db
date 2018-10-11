@@ -12,6 +12,10 @@ const postSchema = new mongoose.Schema({
     minlength: 50,
     maxlength: 1200
   },
+  contentLength: {
+    type: Number,
+    required: true
+  },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'author',
