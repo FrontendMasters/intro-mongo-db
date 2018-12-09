@@ -19,10 +19,24 @@
 ## Course
 Thanks for taking the Intro to MongoDB course, created by Scott Moss & Frontend Masters. This course aims to cover a wide intro into using MongoDb with Nodejs. Topics refrain from going deep, but instead, focus on a wide view.
 ## Excercises
+Note: To handle the error "MongoError: E11000 duplicate key error collection" by dropping the database
+```bash
+mongo
+use dbName;
+db.dropDatabase();
+exit
+```
+(dbName is the name of the database)
+
 ### Installing MongoDB
-Ther are many ways to install MongoDB. [The offical website](https://www.mongodb.com/download-center#community) has you covered either way. After installation, you might have to add a `dbPath`, a location where mongodb saves your data. You can do so like this.
+There are many ways to install MongoDB. [The offical website](https://www.mongodb.com/download-center#community) has you covered either way. After installation, you might have to add a `dbPath`, a location where mongodb saves your data. You can do so like this.
 ```bash
 mkdir -p /data/db
+```
+Note: If you have an error like "data directory not found" or "permission denied" while installing MongoDB:
+```bash
+sudo mkdir /data/db
+sudo chown -R $USER /data/db
 ```
 ### Models
 * location - `exercises/models`
