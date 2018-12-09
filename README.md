@@ -17,7 +17,7 @@
 * [mLab](https://mlab.com/)
 
 ## Course
-Thanks for taking the Intro to MongoDB course, created by Scott Moss & Frontend Masters. This course aims to cover a wide intro into using MongoDb with Nodejs. Topics refrain from going deep, but instead, focus on a wide view.
+Thanks for taking the [Introduction to MongoDB course](https://frontendmasters.com/courses/mongodb/), created by Scott Moss & Frontend Masters. This course aims to cover a wide intro into using MongoDb with Nodejs. Topics refrain from going deep, but instead, focus on a wide view.
 
 ## Exercises
 
