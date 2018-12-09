@@ -18,15 +18,8 @@
 
 ## Course
 Thanks for taking the Intro to MongoDB course, created by Scott Moss & Frontend Masters. This course aims to cover a wide intro into using MongoDb with Nodejs. Topics refrain from going deep, but instead, focus on a wide view.
-## Excercises
-Note: To handle the error "MongoError: E11000 duplicate key error collection" by dropping the database
-```bash
-mongo
-use dbName;
-db.dropDatabase();
-exit
-```
-(dbName is the name of the database)
+
+## Exercises
 
 ### Installing MongoDB
 There are many ways to install MongoDB. [The offical website](https://www.mongodb.com/download-center#community) has you covered either way. After installation, you might have to add a `dbPath`, a location where mongodb saves your data. You can do so like this.
@@ -38,6 +31,7 @@ Note: If you have an error like "data directory not found" or "permission denied
 sudo mkdir /data/db
 sudo chown -R $USER /data/db
 ```
+
 ### Models
 * location - `exercises/models`
 * commands
@@ -51,6 +45,7 @@ This exercise will have you create connection logic and mongoose schemas. Using 
 - [ ] create connection logic on `connect.js`
 - [ ] finish the user schema so that the the user model tests pass
 - [ ] complete the crud functions with the user model and get all the crud test to pass 
+
 ### Queries
 * location - `exercises/queries`
 * commands
@@ -64,6 +59,7 @@ This exercise will have you add relationships between models. You'll then use th
 - [ ] the post model should have a one-to-many similarPost field that points to posts
 - [ ] get all the post model tests to pass
 - [ ] get all the query tests to pass
+
 ### Hooks
 * location - `exercises/hooks`
 * commands
@@ -79,6 +75,7 @@ In this exercise, you'll learn how to use schema middleware and virtuals. Also, 
 - [ ] add a virtual getter to the org schema called `avatar` that creates the fill url to the org avatar by concatinating the cdnUrl with the org id
 - [ ] get all org tests to pass
 - [ ] get all project tests to pass
+
 ### App
 * location - `exercises/app`
 * commands
@@ -93,4 +90,14 @@ In this exercise, you'll have to create queries in Expressjs controllers to sati
 - [ ] create db mutation for `POST /todo/`
 - [ ] **optional** create a mLab sandbox and use your hosted DB
 
+## Debugging
+Note: To handle the error `MongoError: E11000 duplicate key error collection` drop the database.
 
+```bash
+mongo
+use dbName;
+db.dropDatabase();
+exit
+```
+
+(dbName is the name of the database)
