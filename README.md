@@ -28,7 +28,7 @@ mkdir -p /data/db
 ```
 Note: If you have an error like "data directory not found" or "permission denied" while installing MongoDB:
 ```bash
-sudo mkdir /data/db
+sudo mkdir -p /data/db
 sudo chown -R $USER /data/db
 ```
 
