@@ -23,7 +23,7 @@ const postSchema = new mongoose.Schema({
   },
   isFeatured: {
     type: Boolean,
-    deafult: false
+    default: false
   },
   similarPosts: [{
     type: mongoose.Schema.Types.ObjectId,
