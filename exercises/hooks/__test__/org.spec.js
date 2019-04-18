@@ -18,6 +18,6 @@ describe('Org model', () => {
 
   test('has the avatar virtual getter', async () => {
     const org = await Org.create({ name: 'org' });
-    expect(org.avatar).not.toBe(`${cdnUrl}/${org._id}`);
+    expect(org.avatar).toBe(`${cdnUrl}/${org._id}`);
   });
 });
