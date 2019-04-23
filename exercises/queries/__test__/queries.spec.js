@@ -9,7 +9,7 @@ const {
 const Post = require('../post')
 const Author = require('../author')
 const mongoose = require('mongoose')
-const createConent = (length, fill = 'b') => new Array(length).fill(fill).join('')
+const createContent = (length, fill = 'b') => new Array(length).fill(fill).join('')
 
 describe('queries', () => {
   describe('postByTitle', () => {
@@ -18,7 +18,7 @@ describe('queries', () => {
       const post = await Post.create({
         title,
         author: mongoose.Types.ObjectId(),
-        content: createConent(50),
+        content: createContent(50),
         contentLength: 50
       })
       
@@ -33,7 +33,7 @@ describe('queries', () => {
       const post = await Post.create({
         author,
         title: 'Carter v',
-        content: createConent(50),
+        content: createContent(50),
         contentLength: 50
       })
       const [match] = await postsForAuthor(author)
@@ -46,9 +46,9 @@ describe('queries', () => {
       const author = mongoose.Types.ObjectId()
 
       const posts = await Post.create([
-        {title: 'Super Duper', author, content: createConent(1000), contentLength: 1000},
-        {title: 'Amazing', author, content: createConent(100), contentLength: 100},
-        {title: 'Other', author, content: createConent(800), contentLength: 800}
+        {title: 'Super Duper', author, content: createContent(1000), contentLength: 1000},
+        {title: 'Amazing', author, content: createContent(100), contentLength: 100},
+        {title: 'Other', author, content: createContent(800), contentLength: 800}
       ])
 
       const matches = await postByContentLength(1000, 100)
@@ -64,15 +64,15 @@ describe('queries', () => {
       const post = await Post.create({
         title: 'Super Duper',
         author: author.id,
-        content: createConent(1000),
+        content: createContent(1000),
         contentLength: 1000
       })
       const post2 = await Post.create({
         author: author.id,
         title: 'Post 2',
-        content: createConent(100),
+        content: createContent(100),
         contentLength: 100,
-        simularPosts: [post.id]
+        similarPosts: [post.id]
       })
 
       const match = await fullPostById(post2.id)
@@ -83,9 +83,9 @@ describe('queries', () => {
     test('only selects fields given', async () => {
       const author = mongoose.Types.ObjectId()
       await Post.create([
-        {title: 'learn things', content: createConent(100), contentLength: 100, author},
-        {title: 'lean more things', content: createConent(100), contentLength: 100, author},
-        {title: 'lean more things++', content: createConent(100), contentLength: 100, author}
+        {title: 'learn things', content: createContent(100), contentLength: 100, author},
+        {title: 'lean more things', content: createContent(100), contentLength: 100, author},
+        {title: 'lean more things++', content: createContent(100), contentLength: 100, author}
       ])
 
       const matches = await allPostsSlim({title: 1, content: 1})
@@ -98,12 +98,12 @@ describe('queries', () => {
     })
   })
   describe('addRelatedPosts', () => {
-    test('should not overrided related posts that are there', async () => {
+    test('should not override related posts that are there', async () => {
       const author = mongoose.Types.ObjectId()
       const post = await Post.create({
         author,
         title: 'Post',
-        content: createConent(100),
+        content: createContent(100),
         contentLength: 100,
         similarPosts: [mongoose.Types.ObjectId()]
       }) 
