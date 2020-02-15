@@ -27,9 +27,9 @@ beforeEach(async done => {
   }
 })
 afterEach(done => {
-  mongoose.disconnect()
   return done()
 })
 afterAll(done => {
+  mongoose.disconnect()
   return done()
 })
