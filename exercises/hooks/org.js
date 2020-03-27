@@ -12,7 +12,7 @@ const orgSchema = new mongoose.Schema({
     status: {
       type: String,
       required: true,
-      default: ['active'],
+      default: 'active',
       enum: ['active', 'trialing', 'overdue', 'canceled']
     },
     last4: {
