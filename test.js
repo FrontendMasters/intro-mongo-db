@@ -13,7 +13,7 @@ const student = new mongoose.Schema ( {
         unique: true
     },
 
-    faveFood: [{type: Strings}],
+    faveFood: [{type: String}],
 
     info: {
         school: {
@@ -43,10 +43,15 @@ const Student = mongoose.model('student', student)
 
 connect()
 .then(async connection => {
-    const student= await Student.create({firstName: 'Tim'})
-    const found = await student.find({firstName:'Thi'})
-    const foundById= await student.findById('asygcgk')
-    const updated= await student.findByIdUpdate('fytdydtd',{})
-    console.log(student)
+    const school = await School.create({name: 'mlk elementry'})
+    const student= await Student.create({firstName: 'Trisha', school: school._id})
+
+    const match = await Student.findById(student.id)
+        .populate('school')
+        .exec()
+    //const found = await student.find({firstName:'Thi'})
+   //const foundById= await student.findById('asygcgk')
+    //const updated= await student.findByIdUpdate('fytdydtd',{})
+    console.log(match)
 })
 .catch(e => console.error(e))
