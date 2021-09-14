@@ -23,9 +23,20 @@ const student = new mongoose.Schema ( {
             type: Number
         }
 
+    },
+    school: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'school'
     }
+}, {timestamps: true})
+
+const school =new mongoose.Schema({
+    name: String
+
 })
 
+const School = mongoose.model('school', school)
 const Student = mongoose.model('student', student)
 
 //connecting with db
