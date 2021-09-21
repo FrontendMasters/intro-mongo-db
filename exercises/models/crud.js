@@ -1,3 +1,4 @@
+const user = require('./user')
 const User = require('./user')
 
 const getUserById = (id) => {
@@ -20,6 +21,7 @@ const removeUserById = (id) => {
 const updateUserById = (id, update) => {
   return User.findByIdAndUpdate(id, update, {new: true}).exec()
 }
+
 
 module.exports = {
   getUserById,
