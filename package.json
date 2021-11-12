@@ -7,6 +7,9 @@
   "scripts": {
     "test": "jest"
   },
+  "engines": {
+    "node": ">=10.24.x <~11.x"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cuid": "^2.1.4",
